@@ -1,0 +1,57 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countApplesAndOranges function below.
+def countApplesAndOranges(s, t, a, b, apples, oranges):
+
+    arr  = []
+    arr1 = []
+    e = 0
+    f = 0
+
+    for i in range(len(apples)):
+        c  = apples[i] + a
+        arr.append(c)
+    for j in range(len(oranges)):
+        d = oranges[j] + b
+        arr1.append(d)
+    for k in range(len(arr)):
+        if arr[k] >= s and arr[k] <= t:
+            e = e+1
+    for l in range(len(arr1)):
+        if arr1[l] >= s and arr1[l] <= t:
+            f = f+1  
+
+    print(e)
+    print(f)
+
+
+if __name__ == '__main__':
+    st = input().split()
+
+    s = int(st[0])
+
+    t = int(st[1])
+
+    ab = input().split()
+
+    a = int(ab[0])
+
+    b = int(ab[1])
+
+    mn = input().split()
+
+    m = int(mn[0])
+
+    n = int(mn[1])
+
+    apples = list(map(int, input().rstrip().split()))
+
+    oranges = list(map(int, input().rstrip().split()))
+
+    countApplesAndOranges(s, t, a, b, apples, oranges)
