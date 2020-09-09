@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import os
+import sys
+
+#
+# Complete the timeConversion function below.
+#
+def timeConversion(s):
+    sun = int(s[:2])
+    t_hour = 12 + sun
+    if s[8:] == 'AM':
+        if (t_hour == 24):
+            return('00'+ s[2:8])
+        else:
+            return s[ :8]
+
+    if s[8:] == 'PM':
+        if sun == 12:
+            return s[:8]
+        elif sun < 12:
+            return(str(t_hour) + s[2:8])
+
+
+
+
+if __name__ == '__main__':
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    f.write(result + '\n')
+
+    f.close()
